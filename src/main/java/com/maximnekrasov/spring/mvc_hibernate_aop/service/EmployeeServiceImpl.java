@@ -2,6 +2,7 @@ package com.maximnekrasov.spring.mvc_hibernate_aop.service;
 
 import com.maximnekrasov.spring.mvc_hibernate_aop.dao.EmployeeDAO;
 import com.maximnekrasov.spring.mvc_hibernate_aop.entity.Employee;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,5 +23,12 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Transactional
     public void saveEmployee(Employee employee) {
         employeeDAO.saveEmployee(employee);
+    }
+
+    @Override
+    @Transactional
+    public Employee getEmployee(int id) {
+
+        return employeeDAO.getEmployee(id);
     }
 }
